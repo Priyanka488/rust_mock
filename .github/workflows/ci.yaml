@@ -15,6 +15,18 @@ jobs:
       with:
         toolchain: stable
         override: true
+    
+    - name: Install Clippy
+      run: rustup component add clippy
+    
+    - name: Run Clippy
+      run: cargo clippy 
+    
+    - name: Install Rustfmt
+      run: rustup component add rustfmt
+
+    - name: Run Rustfmt
+      run: cargo fmt -- --check
 
     - name: Build
       run: cargo build --verbose
